@@ -1,0 +1,16 @@
+name: Sample_NodeJS
+on: push
+jobs:
+  build-container:
+   name: Sample_NodeJS_Container Image
+   runs-on: windows-latest
+   steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+    - name: Publish to Docker Hub
+      uses: docker/build-push-action@v1
+      with:
+        username: ${{ secrets.DOCKER_ID }}
+        password: ${{ secrets.DOCKER_PWD }}
+        repository: cdianeg/Sample_NodeJS
+     
