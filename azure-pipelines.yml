@@ -1,17 +1,17 @@
 #Build Docker image
 
 pool:
-	vmImage: 'windows-latest'
+ vmImage: 'windows-latest'
 
 variables:
-	imageName: 'NodeJS_Docker_Sample'
+ imageName: 'NodeJS_Docker_Sample'
 
 steps:
 - script:
-		npm install
-		docker build - f Dockerfile -t $(DockerID)/NodeJS_Docker_Sample	
-		docker login - u $(DockerID) -p $pwd
-		docker push $(DockerID)/NodeJS_Docker_Sample
-	env:
-		pwd: $(DockerPWD)
-	
+  npm install
+  docker build - f Dockerfile -t $(DockerID)/NodeJS_Docker_Sample	
+  docker login - u $(DockerID) -p $pwd
+  docker push $(DockerID)/NodeJS_Docker_Sample
+ env:
+  pwd: $(DockerPWD)
+	 
